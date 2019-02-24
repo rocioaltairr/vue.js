@@ -1,0 +1,49 @@
+<div id="app">
+  {{ message }}
+  <menu-section></menu-section>
+  <description-section></description-section>>
+</div>
+<template id="menuTemplate">
+  <ul>
+    <li v-for="item in menuItems">{{ item.text }}</li>
+  </ul>
+</template>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello, Vue!"
+    },
+    components: {
+      "menu-section": {
+        template: "#menuTemplate",
+
+        data: function() {
+          return {
+            menuItems: [
+              {
+                text: "About me"
+              },
+              {
+                text: "Article"
+              },
+              {
+                text: "contact"
+              }
+            ]
+          };
+        }
+      },
+      "description-section": {
+        template: "<p>{{text}}</p>",
+        data: function() {
+          return {
+            text: "Hello ,I am Rocio."
+          };
+        }
+      }
+    }
+  });
+</script>
